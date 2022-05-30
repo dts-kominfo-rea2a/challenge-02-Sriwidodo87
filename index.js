@@ -15,27 +15,57 @@ const arrayObjectPegawai = require("./data-customer.json");
 
 function lakukanLooping(arrPegawai) {
   // ! JANGAN DIMODIFIKASI
-  let dataYangAkanDilooping = arrPegawai;
-
+  let dataYangAkanDilooping =arrPegawai;
   /*
     TODO 1: Buatlah sebuah variabel bernama "hasilLooping" 
       yang berisi gabungan nama depan dan belakang dari masing masing pegawai
 
       Contoh: ["Aisyah Nirmala", "Mansur Faisal", ...]
   */
-  let hasilLooping = null;
+    let hasilLooping=[]
+/*
+  let i=0;
+  const panjang= arrayObjectPegawai.length;
+  while(i < panjang-1){
+    hasilLooping =arrayObjectPegawai[i].namaDepan + arrayObjectPegawai[i].namaBelakang;
 
+      i++;
+      }  
+      */   
+ // let i=0;
+  
+  for(let i=0;i<dataYangAkanDilooping.length;i++){
+    hasilLooping.push(dataYangAkanDilooping[i].namaDepan +" "+ dataYangAkanDilooping[i].namaBelakang);
+  }
+   //hasilLooping =arrayObjectPegawai[i].namaDepan +" "+ arrayObjectPegawai[i].namaBelakang;
+ 
   /*
     TODO 2: Buatlah sebuah variabel bernama "jumlahPria"
       yang berisi jumlah pria dari masing masing pegawai
   */
-  let jumlahPria = null;
+  let jumlahPria = 0;
+
+  for(let i=0;i<dataYangAkanDilooping.length;i++){
+          if(dataYangAkanDilooping[i].jenisKelamin==="M") {
+            jumlahPria+=1;
+          }
+
+  }
 
   /*
     TODO 3: Buatlah sebuah variabel bernama "jumlahWanita"
       yang berisi jumlah wanita dari masing masing pegawai
   */
-  let jumlahWanita = null;
+
+
+  let jumlahWanita = 0;
+
+  for(let i=0;i<dataYangAkanDilooping.length;i++){
+    
+    if(dataYangAkanDilooping[i].jenisKelamin==="F") {
+      jumlahWanita+=1;
+    }
+}
 
   /*
     TODO 4: Buatlah sebuah variabel bernama "komentar"
@@ -49,6 +79,21 @@ function lakukanLooping(arrPegawai) {
         "Jumlah Pria dan Wanita berimbang"
   */
   let komentar = null;
+ 
+
+if(jumlahPria > jumlahWanita){
+  komentar.push("Jumlah Pria lebih banyak dari Wanita");
+} else if( jumlahWanita > jumlahPria){
+  komentar = "Jumlah Wanita lebih banyak dari Pria";
+} else {
+  komentar = "Jumlah Pria dan Wanita berimbang";
+}
+
+
+
+
+
+
 
   // ! JANGAN DIMODIFIKASI
   return {
@@ -65,7 +110,7 @@ function main(data) {
   console.log(hasil.hasilLooping);
   console.log(hasil.jumlahPria);
   console.log(hasil.jumlahWanita);
-
+  console.log(hasil.komentar);
   return hasil;
 }
 
